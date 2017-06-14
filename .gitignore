@@ -1,4 +1,14 @@
-.idea/*
+.idea/
 *.iml
 logging.*
-target/*
+target/
+*.class
+*.log
+*.ctxt
+.mtj.tmp/
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
