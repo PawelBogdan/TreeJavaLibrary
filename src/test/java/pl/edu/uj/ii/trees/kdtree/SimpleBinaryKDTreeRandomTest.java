@@ -29,10 +29,17 @@ public class SimpleBinaryKDTreeRandomTest {
     @Parameterized.Parameter(value = 1)
     public int trials;
 
-    @Parameterized.Parameters(name = "{index}: setSize = {0}, trials = {1}")
+    @Parameterized.Parameter(value = 2)
+    public int dimension;
+
+    @Parameterized.Parameters(name = "{index}: setSize = {0}, trials = {1}, dimentsion = {2}")
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                {10,10}, {100, 100}, {1000, 1000}, {10000, 10000}, {20000, 20000}
+                {10,10,2}, {100,100,2}, {1000,1000,2}, {10000,10000,2}, {20000,20000,2},
+                {10,10,3}, {100,100,3}, {1000,1000,3}, {10000,10000,3}, {20000,20000,3},
+                {10,10,4}, {100,100,4}, {1000,1000,4}, {10000,10000,4}, {20000,20000,4},
+                {10,10,9}, {100,100,9}, {1000,1000,9}, {10000,10000,9},
+                {10,10,22}, {100,100,22}, {1000,1000,22}, {10000,10000,22}
         });
     }
 
