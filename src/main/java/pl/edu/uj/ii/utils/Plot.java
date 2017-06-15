@@ -1,8 +1,11 @@
 package pl.edu.uj.ii.utils;
 
+import de.erichseifert.gral.data.DataSource;
 import de.erichseifert.gral.data.DataTable;
 import de.erichseifert.gral.graphics.Insets2D;
 import de.erichseifert.gral.plots.XYPlot;
+import de.erichseifert.gral.plots.lines.DiscreteLineRenderer2D;
+import de.erichseifert.gral.plots.lines.LineRenderer;
 import de.erichseifert.gral.plots.points.DefaultPointRenderer2D;
 import de.erichseifert.gral.plots.points.PointRenderer;
 import de.erichseifert.gral.ui.InteractivePanel;
@@ -10,20 +13,34 @@ import de.erichseifert.gral.ui.InteractivePanel;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * @author Paweł Bogdan
  * Na podstawie: https://github.com/kmisztal/CEC/blob/master/src/main/java/cec/input/draw/DataDraw.java
  */
 public class Plot extends JFrame {
-    final List<Point> points;
-    final Color color;
+    final List<List<Point>> data;
+    final List<Color> colors;
+    final List<Rectangle> rectangles;
+    final List<Color> rectangleColors;
 
-    public Plot(List<Point> points, Color color) {
-        this.points = points;
-        this.color = color;
+    public Plot() {
+        this.data = new ArrayList<>();
+        this.colors = new ArrayList<>();
+        this.rectangles = new ArrayList<>();
+        this.rectangleColors = new ArrayList<>();
+    }
+
+    public void addPoints(List<Point> points, Color color) {
+        data.add(points);
+        colors.add(color);
+    }
+
+    public void addRectangle(Rectangle rectangle, Color color) {
+        rectangles.add(rectangle);
+        rectangleColors.add(color);
     }
 
     public void disp() {
@@ -31,14 +48,41 @@ public class Plot extends JFrame {
     }
 
     public void disp(String title) {
-        DataTable dataTable = new DataTable(Double.class, Double.class);
-        points.forEach(p -> dataTable.add(p.get(0), p.get(1)));
-        XYPlot plot = new XYPlot(dataTable);
+        DataTable[] dataTables = new DataTable[data.size() + rectangles.size()];
+        for (int i = 0; i < data.size(); ++i) {
+            DataTable temp = new DataTable(Double.class, Double.class);
+            data.get(i).forEach(p -> temp.add(p.get(0), p.get(1)));
+            dataTables[i] = temp;
+        }
 
-        PointRenderer points1 = new DefaultPointRenderer2D();
-        points1.setShape(new Ellipse2D.Double(-3.0, -3.0, 6.0, 6.0));
-        points1.setColor(color);
-        plot.setPointRenderers(plot.get(0), points1);
+        for (int i = data.size(), j = 0; j < rectangles.size(); i++, j++) {
+            DataTable temp = new DataTable(Double.class, Double.class);
+            Rectangle r = rectangles.get(j);
+            temp.add(r.getX1(), r.getY1());
+            temp.add(r.getX1(), r.getY2());
+            temp.add(r.getX2(), r.getY2());
+            temp.add(r.getX2(), r.getY1());
+            temp.add(r.getX1(), r.getY1());
+            dataTables[i] = temp;
+        }
+
+        XYPlot plot = new XYPlot(dataTables);
+
+        for (int i = 0; i < data.size(); ++i) {
+            DataSource s = plot.get(i);
+            PointRenderer points1 = new DefaultPointRenderer2D();
+            points1.setShape(new Ellipse2D.Double(-3.0, -3.0, 6.0, 6.0));
+            points1.setColor(colors.get(i));
+            plot.setPointRenderers(s, points1);
+        }
+
+        for (int i = data.size(), j = 0; j < rectangles.size(); i++, j++) {
+            DataSource s = plot.get(i);
+            LineRenderer points2 = new DiscreteLineRenderer2D();
+//            points2.setShape(new Rectangle2D.Double(rectangles.get(j).getX1(), rectangles.get(j).getY1(),rectangles.get(j).getHeight(), rectangles.get(j).getWidth()));
+            points2.setColor(rectangleColors.get(j));
+            plot.setLineRenderers(s, points2);
+        }
 
         // Style the plot
         double insetsTop = 20.0,
@@ -67,8 +111,6 @@ public class Plot extends JFrame {
         this.setMinimumSize(getContentPane().getMinimumSize());
         this.setSize(550, 550);
         this.setVisible(true);
-        Scanner sc = new Scanner(System.in);
-        sc.next();
     }
 
 }
