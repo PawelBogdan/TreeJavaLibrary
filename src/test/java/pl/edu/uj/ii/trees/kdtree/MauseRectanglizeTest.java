@@ -31,7 +31,9 @@ public class MauseRectanglizeTest {
 
     @Test
     public void test() throws IOException, WrongDimensionException {
-        RectangelizeTree tree = new RectangelizeTreeImpl(Utils.readPoints("src/test/resources/data/mause.txt"), 5);
+//        String filename = "src/test/resources/data/mause.txt";
+        String filename = "src/test/resources/data/rec.csv";
+        RectangelizeTree tree = new RectangelizeTreeImpl(Utils.readPoints(filename), 5);
         RectangleNode root = tree.getTree();
         Plot plot = new Plot();
         plot.addPoints(root.getValues(), Color.BLUE);
