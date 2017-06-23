@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f992401a-7f16-431f-a93e-585f7b7d9739" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/resources/data/rec.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/edu/uj/ii/trees/rectanglize/RectangelizeTreeImpl.java" afterPath="$PROJECT_DIR$/src/main/java/pl/edu/uj/ii/trees/rectanglize/RectangelizeTreeImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/pl/edu/uj/ii/trees/kdtree/MauseDrawingTest.java" afterPath="$PROJECT_DIR$/src/test/java/pl/edu/uj/ii/trees/kdtree/MauseDrawingTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/pl/edu/uj/ii/trees/kdtree/MauseRectanglizeTest.java" afterPath="$PROJECT_DIR$/src/test/java/pl/edu/uj/ii/trees/kdtree/MauseRectanglizeTest.java" />
     </list>
     <ignored path="TreeJavaLibrary.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,44 +37,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MauseRectanglizeTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MauseRectanglizeTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/pl/edu/uj/ii/trees/kdtree/MauseRectanglizeTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+            <state relative-caret-position="397">
+              <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SimpleBinaryKDTreeRandomTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/pl/edu/uj/ii/trees/kdtree/SimpleBinaryKDTreeRandomTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="39" column="70" selection-start-line="39" selection-start-column="70" selection-end-line="39" selection-end-column="70" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KDTree.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/uj/ii/trees/kdtree/KDTree.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -94,8 +62,8 @@
       <file leaf-file-name="MauseDrawingTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/pl/edu/uj/ii/trees/kdtree/MauseDrawingTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+            <state relative-caret-position="285">
+              <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -183,10 +151,10 @@
         <option value="$PROJECT_DIR$/src/main/java/pl/edu/uj/ii/utils/Utils.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/edu/uj/ii/utils/PointComparator.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/edu/uj/ii/trees/kdtree/AbstractKDTree.java" />
-        <option value="$PROJECT_DIR$/src/test/java/pl/edu/uj/ii/trees/kdtree/MauseRectanglizeTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/pl/edu/uj/ii/trees/kdtree/MauseDrawingTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/pl/edu/uj/ii/trees/kdtree/SimpleBinaryKDTreeRandomTest.java" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/pl/edu/uj/ii/trees/kdtree/MauseDrawingTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/pl/edu/uj/ii/trees/kdtree/MauseRectanglizeTest.java" />
       </list>
     </option>
   </component>
@@ -542,7 +510,7 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MauseDrawingTest.drawMause">
+  <component name="RunManager" selected="JUnit.MauseRectanglizeTest.test">
     <configuration default="false" name="SimpleBinaryKDTreeRandomTest.randomParametrizedTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1064,8 +1032,8 @@
     </list>
     <recent_temporary>
       <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.MauseDrawingTest.drawMause" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.MauseRectanglizeTest.test" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.MauseRectanglizeTest.test" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.MauseDrawingTest.drawMause" />
         <item index="2" class="java.lang.String" itemvalue="JUnit.SimpleBinaryKDTreeRandomTest.randomParametrizedTest" />
       </list>
     </recent_temporary>
@@ -1087,7 +1055,7 @@
       <workItem from="1497607015881" duration="730000" />
       <workItem from="1497611576010" duration="1057000" />
       <workItem from="1498228644469" duration="2108000" />
-      <workItem from="1498230979805" duration="66000" />
+      <workItem from="1498230979805" duration="897000" />
     </task>
     <task id="LOCAL-00001" summary="third commit">
       <created>1497440810948</created>
@@ -1138,21 +1106,25 @@
       <option name="project" value="LOCAL" />
       <updated>1497492623845</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Merge branch 'master' of https://github.com/PawelBogdan/TreeJavaLibrary&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;TreeJavaLibrary.iml&#10;#&#9;pom.xml&#10;#&#9;src/test/java/pl/edu/uj/ii/trees/kdtree/MauseDrawingTest.java&#10;#&#9;src/test/java/pl/edu/uj/ii/trees/kdtree/MauseRectanglizeTest.java&#10;#&#9;src/test/java/pl/edu/uj/ii/trees/kdtree/SimpleBinaryKDTreeRandomTest.java&#10;">
+      <created>1498231058790</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1498231058790</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MauseDrawingTest_drawMause - 2017.06.23 at 17h 07m 29s.xml">
+    <history-entry file="MauseDrawingTest_drawMause - 2017.06.23 at 17h 36m 48s.xml">
       <configuration name="MauseDrawingTest.drawMause" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MauseDrawingTest_drawMause - 2017.06.23 at 17h 08m 05s.xml">
+    <history-entry file="MauseDrawingTest_drawMause - 2017.06.23 at 17h 37m 18s.xml">
       <configuration name="MauseDrawingTest.drawMause" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MauseRectanglizeTest_test - 2017.06.15 at 03h 54m 52s.xml">
-      <configuration name="MauseRectanglizeTest.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MauseRectanglizeTest_test - 2017.06.15 at 03h 55m 27s.xml">
-      <configuration name="MauseRectanglizeTest.test" configurationId="JUnit" />
+    <history-entry file="MauseDrawingTest_drawMause - 2017.06.23 at 17h 38m 02s.xml">
+      <configuration name="MauseDrawingTest.drawMause" configurationId="JUnit" />
     </history-entry>
     <history-entry file="MauseRectanglizeTest_test - 2017.06.15 at 03h 56m 09s.xml">
       <configuration name="MauseRectanglizeTest.test" configurationId="JUnit" />
@@ -1172,9 +1144,12 @@
     <history-entry file="MauseRectanglizeTest_test - 2017.06.15 at 04h 05m 57s.xml">
       <configuration name="MauseRectanglizeTest.test" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="MauseRectanglizeTest_test - 2017.06.23 at 17h 39m 09s.xml">
+      <configuration name="MauseRectanglizeTest.test" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33980000" />
+    <option name="totallyTimeSpent" value="34811000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="25" width="1922" height="1055" extended-state="6" />
@@ -1182,6 +1157,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1191,7 +1167,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3380744" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1202,7 +1178,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32932165" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1223,7 +1198,8 @@
     <MESSAGE value="KD tree working" />
     <MESSAGE value="Plotting points works" />
     <MESSAGE value="Proste prostokątowanie" />
-    <option name="LAST_COMMIT_MESSAGE" value="Proste prostokątowanie" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/PawelBogdan/TreeJavaLibrary&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;TreeJavaLibrary.iml&#10;#&#9;pom.xml&#10;#&#9;src/test/java/pl/edu/uj/ii/trees/kdtree/MauseDrawingTest.java&#10;#&#9;src/test/java/pl/edu/uj/ii/trees/kdtree/MauseRectanglizeTest.java&#10;#&#9;src/test/java/pl/edu/uj/ii/trees/kdtree/SimpleBinaryKDTreeRandomTest.java&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/PawelBogdan/TreeJavaLibrary&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;TreeJavaLibrary.iml&#10;#&#9;pom.xml&#10;#&#9;src/test/java/pl/edu/uj/ii/trees/kdtree/MauseDrawingTest.java&#10;#&#9;src/test/java/pl/edu/uj/ii/trees/kdtree/MauseRectanglizeTest.java&#10;#&#9;src/test/java/pl/edu/uj/ii/trees/kdtree/SimpleBinaryKDTreeRandomTest.java&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1348,7 +1324,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1394,7 +1372,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
           <caret line="64" column="43" selection-start-line="64" selection-start-column="43" selection-end-line="64" selection-end-column="43" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1580,40 +1560,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/pl/edu/uj/ii/trees/kdtree/MauseRectanglizeTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/pl/edu/uj/ii/trees/kdtree/MauseDrawingTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/edu/uj/ii/utils/Utils.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/pl/edu/uj/ii/trees/kdtree/SimpleBinaryKDTreeRandomTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="39" column="70" selection-start-line="39" selection-start-column="70" selection-end-line="39" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/pl/edu/uj/ii/trees/kdtree/SimpleBinaryKDTreeRandomTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="39" column="70" selection-start-line="39" selection-start-column="70" selection-end-line="39" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/pl/edu/uj/ii/trees/kdtree/MauseDrawingTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/pl/edu/uj/ii/trees/kdtree/MauseRectanglizeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
