@@ -5,6 +5,7 @@ import org.junit.Test;
 import pl.edu.misztal.readers.Data;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * @author Paweł Bogdan

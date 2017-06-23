@@ -16,12 +16,11 @@ import java.util.List;
  */
 public class RectangelizeTreeImpl implements RectangelizeTree {
 
-    Logger log = Logger.getLogger(RectangelizeTreeImpl.class);
-
     protected RectangleNode root;
     protected int dimension;
     protected List<Point> points;
     protected int slicesToCheck;
+    Logger log = Logger.getLogger(RectangelizeTreeImpl.class);
 
     public RectangelizeTreeImpl(List<Point> points, int slicesToCheck) throws WrongDimensionException {
         if (!points.stream().allMatch(p -> p.getDimension() == 2)) {
