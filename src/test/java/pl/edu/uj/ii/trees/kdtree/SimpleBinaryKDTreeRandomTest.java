@@ -8,7 +8,6 @@ import org.junit.runners.Parameterized;
 import pl.edu.uj.ii.exceptions.NoChildFoundException;
 import pl.edu.uj.ii.exceptions.TreeNotConstructedYetException;
 import pl.edu.uj.ii.exceptions.WrongDimensionException;
-import pl.edu.uj.ii.utils.Point;
 import pl.edu.uj.ii.utils.Utils;
 
 import java.time.Duration;
@@ -21,16 +20,13 @@ import java.util.List;
 
 @RunWith(value = Parameterized.class)
 public class SimpleBinaryKDTreeRandomTest {
-    Logger log = Logger.getLogger(SimpleBinaryKDTreeRandomTest.class);
-
     @Parameterized.Parameter(value = 0)
     public int setSize;
-
     @Parameterized.Parameter(value = 1)
     public int trials;
-
     @Parameterized.Parameter(value = 2)
     public int dimension;
+    Logger log = Logger.getLogger(SimpleBinaryKDTreeRandomTest.class);
 
     @Parameterized.Parameters(name = "{index}: setSize = {0}, trials = {1}, dimentsion = {2}")
     public static Collection<Object[]> data() {

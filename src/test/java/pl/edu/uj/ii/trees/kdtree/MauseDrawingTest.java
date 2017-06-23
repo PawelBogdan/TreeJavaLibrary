@@ -3,7 +3,6 @@ package pl.edu.uj.ii.trees.kdtree;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import pl.edu.uj.ii.utils.Plot;
-import pl.edu.uj.ii.utils.Point;
 import pl.edu.uj.ii.utils.Utils;
 
 import java.io.IOException;

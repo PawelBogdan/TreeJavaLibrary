@@ -4,7 +4,6 @@ import pl.edu.uj.ii.exceptions.NoChildFoundException;
 import pl.edu.uj.ii.exceptions.TreeNotConstructedYetException;
 import pl.edu.uj.ii.exceptions.WrongDimensionException;
 import pl.edu.uj.ii.utils.Node;
-import pl.edu.uj.ii.utils.Point;
 import pl.edu.uj.ii.utils.PointComparator;
 
 import java.util.ArrayList;
