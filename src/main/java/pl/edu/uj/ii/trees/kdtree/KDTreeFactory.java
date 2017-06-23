@@ -1,8 +1,8 @@
 package pl.edu.uj.ii.trees.kdtree;
 
 
+import pl.edu.misztal.data.Point;
 import pl.edu.uj.ii.exceptions.WrongDimensionException;
-import pl.edu.uj.ii.utils.Point;
 
 import java.util.Arrays;
 import java.util.List;

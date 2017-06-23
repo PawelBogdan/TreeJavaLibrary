@@ -5,11 +5,10 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import pl.edu.misztal.data.Point;
 import pl.edu.uj.ii.exceptions.NoChildFoundException;
 import pl.edu.uj.ii.exceptions.TreeNotConstructedYetException;
 import pl.edu.uj.ii.exceptions.WrongDimensionException;
-import pl.edu.uj.ii.utils.Point;
-import pl.edu.uj.ii.utils.Utils;
 
 import java.time.Duration;
 import java.time.LocalTime;
@@ -38,8 +37,7 @@ public class SimpleBinaryKDTreeRandomTest {
                 {10,10,2}, {100,100,2}, {1000,1000,2}, {10000,10000,2}, {20000,20000,2},
                 {10,10,3}, {100,100,3}, {1000,1000,3}, {10000,10000,3}, {20000,20000,3},
                 {10,10,4}, {100,100,4}, {1000,1000,4}, {10000,10000,4}, {20000,20000,4},
-                {10,10,9}, {100,100,9}, {1000,1000,9}, {10000,10000,9},
-                {10,10,22}, {100,100,22}, {1000,1000,22}, {10000,10000,22}
+                {10,10,9}, {100,100,9}, {1000,1000,9}, {10000,10000,9}
         });
     }
 
@@ -49,7 +47,7 @@ public class SimpleBinaryKDTreeRandomTest {
         LocalTime startTime = LocalTime.now();
         List<Point> points = new ArrayList<>();
         for (int i = 0; i < setSize; ++i) {
-            points.add(Utils.createRandomPoint(1, 3, 10));
+            points.add(Point.createRandomPoint(1,3,10));
         }
         LocalTime endTime = LocalTime.now();
 
@@ -68,7 +66,7 @@ public class SimpleBinaryKDTreeRandomTest {
         long treeTime = 0;
         for (int i = 0; i < trials; i++) {
 
-            Point p = Utils.createRandomPoint(1, 3, 10);
+            Point p = Point.createRandomPoint(1, 3, 10);
 
             startTime = LocalTime.now();
             double dist = Double.MAX_VALUE;

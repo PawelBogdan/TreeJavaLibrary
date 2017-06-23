@@ -1,10 +1,10 @@
 package pl.edu.uj.ii.utils;
 
+
+import pl.edu.misztal.data.Point;
+
 import java.util.Comparator;
 
-/**
- * @author Paweł Bogdan
- */
 public class PointComparator implements Comparator<Point> {
     private int coordinate;
     private int dimension;

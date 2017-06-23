@@ -16,6 +16,8 @@ import java.awt.geom.Ellipse2D;
 import java.util.ArrayList;
 import java.util.List;
 
+import pl.edu.misztal.data.Point;
+
 /**
  * @author Paweł Bogdan
  * Na podstawie: https://github.com/kmisztal/CEC/blob/master/src/main/java/cec/input/draw/DataDraw.java

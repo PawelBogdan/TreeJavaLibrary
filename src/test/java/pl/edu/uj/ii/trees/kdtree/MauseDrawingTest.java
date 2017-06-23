@@ -2,12 +2,9 @@ package pl.edu.uj.ii.trees.kdtree;
 
 import org.apache.log4j.Logger;
 import org.junit.Test;
-import pl.edu.uj.ii.utils.Plot;
-import pl.edu.uj.ii.utils.Point;
-import pl.edu.uj.ii.utils.Utils;
+import pl.edu.misztal.readers.Data;
 
 import java.io.IOException;
-import java.util.List;
 
 /**
  * @author Paweł Bogdan
@@ -17,9 +14,8 @@ public class MauseDrawingTest {
 
     @Test
     public void drawMause() throws IOException {
-        List<Point> points = Utils.readPoints("src/test/resources/data/mause.txt");
-        Plot plot = new Plot();
-        plot.disp();
+        Data data = new Data();
+        data.read("src/test/resources/data/mause.txt", Data.DataType.TEXT_SPACE.getIdentifier());
     }
 
 }

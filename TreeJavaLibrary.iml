@@ -19,5 +19,6 @@
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
     <orderEntry type="library" name="Maven: de.erichseifert.gral:gral-core:0.11" level="project" />
     <orderEntry type="library" name="Maven: de.erichseifert.vectorgraphics2d:VectorGraphics2D:0.10" level="project" />
+    <orderEntry type="library" name="Maven: pl.misztal:DataEater:1.0-SNAPSHOT" level="project" />
   </component>
 </module>

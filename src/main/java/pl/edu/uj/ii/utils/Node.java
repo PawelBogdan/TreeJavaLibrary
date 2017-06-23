@@ -1,6 +1,7 @@
 package pl.edu.uj.ii.utils;
 
 
+import pl.edu.misztal.data.Point;
 import pl.edu.uj.ii.exceptions.NoChildFoundException;
 
 import java.util.List;

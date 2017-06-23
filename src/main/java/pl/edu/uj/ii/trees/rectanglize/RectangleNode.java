@@ -1,7 +1,7 @@
 package pl.edu.uj.ii.trees.rectanglize;
 
+import pl.edu.misztal.data.Point;
 import pl.edu.uj.ii.utils.Node;
-import pl.edu.uj.ii.utils.Point;
 import pl.edu.uj.ii.utils.Rectangle;
 
 import java.util.List;

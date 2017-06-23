@@ -66,5 +66,10 @@
       <artifactId>gral-core</artifactId>
       <version>0.11</version>
     </dependency>
+    <dependency>
+      <groupId>pl.misztal</groupId>
+      <artifactId>DataEater</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 </project>
