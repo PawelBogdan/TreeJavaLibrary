@@ -1,7 +1,7 @@
 package pl.edu.uj.ii.trees.rectanglize;
 
 import org.apache.log4j.Logger;
-import org.ejml.simple.SimpleMatrix;
+import pl.edu.misztal.data.Cluster;
 import pl.edu.misztal.data.Point;
 import pl.edu.uj.ii.exceptions.WrongDimensionException;
 import pl.edu.uj.ii.utils.Node;
@@ -22,10 +22,10 @@ public class RectangelizeTreeImpl implements RectangelizeTree {
     protected int slicesToCheck;
     Logger log = Logger.getLogger(RectangelizeTreeImpl.class);
 
-    public RectangelizeTreeImpl(List<Point> points, int slicesToCheck) throws WrongDimensionException {
-        if (!points.stream().allMatch(p -> p.getDimension() == 2)) {
-            throw new WrongDimensionException("Only 2D data available");
-        }
+    public RectangelizeTreeImpl(List<Point> points, int slicesToCheck, int maxDepth) throws WrongDimensionException {
+//        if (!points.stream().allMatch(p -> p.getDimension() == 2)) {
+//            throw new WrongDimensionException("Only 2D data available");
+//        }
         this.points = points;
         this.slicesToCheck = slicesToCheck;
         Point tempPoint = points.get(0);
@@ -41,46 +41,27 @@ public class RectangelizeTreeImpl implements RectangelizeTree {
             if (x < xMin) xMin = x;
             if (x > xMax) xMax = x;
         }
-        this.root = findPartition(new Rectangle(xMin, yMax, xMax, yMin), points, 0, 10);
+        this.root = findPartition(new Rectangle(points, getCost(xMax-xMin, yMax-yMin, points), xMin, yMax, xMax, yMin), points, 0, maxDepth);
 
     }
 
-    private static double getCovarianceMatrix(List<Point> points) {
-        SimpleMatrix result = new SimpleMatrix(2,2);
-        double avgX = 0;
-        double avgY = 0;
+    private static double getCost(double width, double height, List<Point> points) {
+        if (points.size() == 0) return 0;
+        Cluster cluster = new Cluster(points.get(0).getDimension());
         for (Point p : points) {
-            avgX += p.get(0);
-            avgY += p.get(1);
+            cluster.add(p);
         }
-        avgX /= points.size();
-        avgY /= points.size();
+        return width * height * cluster.getCov().get(3, 3);
+    }
 
-        double varX = 0;
-        double varY = 0;
-        for (Point p : points) {
-            varX += (p.get(0) - avgX) * (p.get(0) - avgX);
-            varY += (p.get(1) - avgY) * (p.get(1) - avgY);
-        }
-        varX /= points.size();
-        varY /= points.size();
-
-        double covXY = 0;
-        for (int i = 0; i < points.size(); ++i) {
-            for (int j = i+1; j < points.size(); ++j) {
-                covXY += (points.get(i).get(0) - points.get(j).get(0)) *(points.get(i).get(1) - points.get(j).get(1));
-            }
-        }
-        covXY /= (points.size()*points.size());
-        result.set(0,0,varX);
-        result.set(1,1,varY);
-        result.set(0,1,covXY);
-        result.set(1,0,covXY);
-        return result.determinant();
+    private static double getCostCompare(double firstCost, double secondCost) {
+//        return firstCost + secondCost;
+        return firstCost * secondCost;
+//        return Math.min(firstCost, secondCost);
     }
 
     protected RectangleNode findPartition(Rectangle rectangle, List<Point> points, int depth, int maxDepth) {
-        if (depth == maxDepth) {
+        if (depth >= maxDepth) {
             log.info("Max depth reached, returning null");
             return new RectangleNode(rectangle, points, -1, new ArrayList<>(), new ArrayList<>());
         }
@@ -100,18 +81,19 @@ public class RectangelizeTreeImpl implements RectangelizeTree {
         double smallWidth = width / slicesToCheck;
         double smallHeigh = height / slicesToCheck;
 
-
         double minCost = Double.MAX_VALUE;
         double dimension = -1;
         double slice = -1;
+        double fCost = 0;
+        double sCost = 0;
 
         for (int i = 1; i < slicesToCheck; i++) {
             double x1 = xMin;
-            double x2 = xMin + i*smallWidth;
+            double x2 = xMin + i * smallWidth;
             double x3 = xMax;
             double y1 = yMax;
             double y2 = yMin;
-            double leftWidth = i*smallWidth;
+            double leftWidth = i * smallWidth;
             double rightWidth = width - leftWidth;
             List<Point> leftPoints = new ArrayList<>();
             List<Point> rightPoints = new ArrayList<>();
@@ -122,19 +104,21 @@ public class RectangelizeTreeImpl implements RectangelizeTree {
                     rightPoints.add(p);
                 }
             }
-            double leftCost = leftWidth * height * getCovarianceMatrix(leftPoints);
-            double rightCost = rightWidth * height * getCovarianceMatrix(rightPoints);
-            if (leftCost*rightCost < minCost) {
-                minCost = leftCost*rightCost;
+            double leftCost = getCost(leftWidth, height, leftPoints);
+            double rightCost = getCost(rightWidth, height, rightPoints);
+            if (getCostCompare(leftCost, rightCost) < minCost) {
+                minCost = getCostCompare(leftCost, rightCost);
                 dimension = 0;
                 slice = i;
+                fCost = leftCost;
+                sCost = rightCost;
             }
         }
 
 
         for (int i = 1; i < slicesToCheck; i++) {
             double y1 = yMax;
-            double y2 = yMax - (i)*smallHeigh;
+            double y2 = yMax - (i) * smallHeigh;
             double y3 = yMin;
             double x1 = xMax;
             double x2 = xMin;
@@ -149,18 +133,20 @@ public class RectangelizeTreeImpl implements RectangelizeTree {
                     bottomPoints.add(p);
                 }
             }
-            double topCost = topHeight*width*getCovarianceMatrix(topPoints);
-            double bottomCost = bottomHeight*width*getCovarianceMatrix(bottomPoints);
-            if (topCost*bottomCost < minCost) {
-                minCost = topCost*bottomCost;
+            double topCost = getCost(width, topHeight, topPoints);
+            double bottomCost = getCost(width, bottomHeight, bottomPoints);
+            if (getCostCompare(topCost, bottomCost) < minCost) {
+                minCost = getCostCompare(topCost, bottomCost);
                 dimension = 1;
                 slice = i;
+                fCost = topCost;
+                sCost = bottomCost;
             }
         }
 
         if (dimension == 0) {
             double x1 = xMin;
-            double x2 = xMin + slice*smallWidth;
+            double x2 = xMin + slice * smallWidth;
             double x3 = xMax;
             double y1 = yMax;
             double y2 = yMin;
@@ -173,10 +159,12 @@ public class RectangelizeTreeImpl implements RectangelizeTree {
                     rightPoints.add(p);
                 }
             }
-            Rectangle leftRectangle = new Rectangle(x1, y1, x2, y2);
-            Rectangle rightRectangle = new Rectangle(x2, y1, x3, y2);
-            RectangleNode topChild = findPartition(leftRectangle, leftPoints, depth+1, maxDepth);
-            RectangleNode bottomChild = findPartition(rightRectangle, rightPoints, depth+1, maxDepth);
+            Rectangle leftRectangle = new Rectangle(leftPoints, fCost, x1, y1, x2, y2);
+            Rectangle rightRectangle = new Rectangle(rightPoints, sCost, x2, y1, x3, y2);
+            RectangleNode topChild = null;
+            topChild = findPartition(leftRectangle, leftPoints, depth + 1, maxDepth);
+            RectangleNode bottomChild = null;
+            bottomChild = findPartition(rightRectangle, rightPoints, depth + 1, maxDepth);
             List<Node> children = new ArrayList<>();
             if (topChild != null) {
                 children.add(topChild);
@@ -188,7 +176,7 @@ public class RectangelizeTreeImpl implements RectangelizeTree {
 
         } else {
             double y1 = yMax;
-            double y2 = yMax - (slice)*smallHeigh;
+            double y2 = yMax - (slice) * smallHeigh;
             double y3 = yMin;
             double x1 = xMin;
             double x2 = xMax;
@@ -201,10 +189,14 @@ public class RectangelizeTreeImpl implements RectangelizeTree {
                     bottomPoints.add(p);
                 }
             }
-            Rectangle topRectangle = new Rectangle(x1, y1, x2, y2);
-            Rectangle bottomRectangle = new Rectangle(x1, y2, x2, y3);
-            RectangleNode leftChild = findPartition(topRectangle, topPoints, depth+1, maxDepth);
-            RectangleNode rightChild = findPartition(bottomRectangle, bottomPoints, depth+1, maxDepth);
+            Rectangle topRectangle = new Rectangle(topPoints, fCost, x1, y1, x2, y2);
+            Rectangle bottomRectangle = new Rectangle(bottomPoints, sCost, x1, y2, x2, y3);
+            RectangleNode leftChild = null;
+//            if (leftCov > 0.084)
+            leftChild = findPartition(topRectangle, topPoints, depth + 1, maxDepth);
+            RectangleNode rightChild = null;
+//            if (rightCov > 0.084)
+            rightChild = findPartition(bottomRectangle, bottomPoints, depth + 1, maxDepth);
             List<Node> children = new ArrayList<>();
             if (leftChild != null) {
                 children.add(leftChild);

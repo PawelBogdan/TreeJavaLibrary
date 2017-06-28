@@ -32,7 +32,7 @@ public class MauseRectanglizeTest {
     public void test() throws IOException, WrongDimensionException, InterruptedException {
         Data data = new Data();
         data.read("src/test/resources/data/mause.txt", Data.DataType.TEXT_SPACE.getIdentifier());
-        RectangelizeTree tree = new RectangelizeTreeImpl(data.getData(), 5);
+        RectangelizeTree tree = new RectangelizeTreeImpl(data.getData(), 5, 10);
         RectangleNode root = tree.getTree();
         Plot plot = new Plot();
         plot.addPoints(root.getValues(), Color.BLUE);
