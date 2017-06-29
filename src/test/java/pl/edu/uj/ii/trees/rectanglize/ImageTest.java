@@ -7,14 +7,12 @@ import pl.edu.misztal.JImageStreamToolkit.ui.ImageFrame;
 import pl.edu.misztal.readers.Data;
 import pl.edu.uj.ii.exceptions.WrongDimensionException;
 import pl.edu.uj.ii.trees.kdtree.MauseDrawingTest;
-import pl.edu.uj.ii.utils.*;
+import pl.edu.uj.ii.utils.Node;
+import pl.edu.uj.ii.utils.Plot;
 import pl.edu.uj.ii.utils.Rectangle;
-
 
 import java.awt.*;
 import java.io.IOException;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by krzys on 23.06.2017.
@@ -42,7 +40,7 @@ public class ImageTest {
             Rectangle rec = root.getRectangle();
             graph.drawRect((int)rec.getX1(), image.getHeight()-(int)rec.getY1(), (int)rec.getWidth(), (int)rec.getHeight());
             graph.dispose();
-            System.out.println(rec);
+            log.info(rec.toString());
         } else {
             for (Node n : root.getChildren()) {
                 RectangleNode rn = (RectangleNode) n;
@@ -57,7 +55,7 @@ public class ImageTest {
     public void imageTest() throws IOException, InterruptedException, WrongDimensionException {
         Data data = new Data();
         data.read("src/test/resources/data/img1.png", Data.DataType.IMAGE_PNG.getIdentifier());
-        RectangelizeTree tree = new RectangelizeTreeImpl(data.getData(), 5, 5);
+        RectangelizeTree tree = new RectangelizeTreeImpl(data.getData(), 5, 30);
         RectangleNode root = tree.getTree();
 //        Plot plot = new Plot();
 //        plot.addPoints(root.getValues(), Color.BLUE);
@@ -67,6 +65,6 @@ public class ImageTest {
         Image image = new Image("src/test/resources/data/img1.png");
         findRectanglesOnImage(image, root);
         new ImageFrame(image).display();
-        Thread.sleep(1000*15);
+        Thread.sleep(1000*30);
     }
 }

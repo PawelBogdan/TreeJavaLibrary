@@ -20,7 +20,7 @@ public class RectangelizeTreeImpl implements RectangelizeTree {
     protected int dimension;
     protected List<Point> points;
     protected int slicesToCheck;
-    Logger log = Logger.getLogger(RectangelizeTreeImpl.class);
+    static Logger log = Logger.getLogger(RectangelizeTreeImpl.class);
 
     public RectangelizeTreeImpl(List<Point> points, int slicesToCheck, int maxDepth) throws WrongDimensionException {
 //        if (!points.stream().allMatch(p -> p.getDimension() == 2)) {
@@ -55,9 +55,15 @@ public class RectangelizeTreeImpl implements RectangelizeTree {
     }
 
     private static double getCostCompare(double firstCost, double secondCost) {
-//        return firstCost + secondCost;
-        return firstCost * secondCost;
+        return firstCost + secondCost;
+//        return firstCost * secondCost;
 //        return Math.min(firstCost, secondCost);
+    }
+
+    private static boolean shallDivide(double minCost, double codtOfAllRectangle) {
+        log.info("Minimal cost: " + minCost);
+        log.info("Cost of total: " + codtOfAllRectangle);
+        return Math.abs(codtOfAllRectangle - minCost) < 0.001;
     }
 
     protected RectangleNode findPartition(Rectangle rectangle, List<Point> points, int depth, int maxDepth) {
@@ -144,6 +150,9 @@ public class RectangelizeTreeImpl implements RectangelizeTree {
             }
         }
 
+        if (shallDivide(minCost, getCost(width, height, points))) {
+            return new RectangleNode(rectangle, points, -1, new ArrayList<>(), new ArrayList<>());
+        }
         if (dimension == 0) {
             double x1 = xMin;
             double x2 = xMin + slice * smallWidth;
