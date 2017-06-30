@@ -1,9 +1,9 @@
 package pl.edu.uj.ii.trees.rectanglize;
 
 import org.apache.log4j.Logger;
-import pl.edu.misztal.data.Cluster;
 import pl.edu.misztal.data.Point;
 import pl.edu.uj.ii.exceptions.WrongDimensionException;
+import pl.edu.uj.ii.utils.Costs;
 import pl.edu.uj.ii.utils.Node;
 import pl.edu.uj.ii.utils.Rectangle;
 
@@ -16,11 +16,11 @@ import java.util.List;
  */
 public class RectangelizeTreeImpl implements RectangelizeTree {
 
+    static Logger log = Logger.getLogger(RectangelizeTreeImpl.class);
     protected RectangleNode root;
     protected int dimension;
     protected List<Point> points;
     protected int slicesToCheck;
-    static Logger log = Logger.getLogger(RectangelizeTreeImpl.class);
 
     public RectangelizeTreeImpl(List<Point> points, int slicesToCheck, int maxDepth) throws WrongDimensionException {
 //        if (!points.stream().allMatch(p -> p.getDimension() == 2)) {
@@ -46,12 +46,8 @@ public class RectangelizeTreeImpl implements RectangelizeTree {
     }
 
     private static double getCost(double width, double height, List<Point> points) {
-        if (points.size() == 0) return 0;
-        Cluster cluster = new Cluster(points.get(0).getDimension());
-        for (Point p : points) {
-            cluster.add(p);
-        }
-        return width * height * cluster.getCov().get(3, 3);
+//        return Costs.covarianceCost(width, height, points);
+        return Costs.entropyCost(width, height, points);
     }
 
     private static double getCostCompare(double firstCost, double secondCost) {

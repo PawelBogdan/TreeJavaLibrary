@@ -35,8 +35,10 @@ public class ImageTest {
         if (root.getChildren().isEmpty()) {
 //            image.addRectangle(root.getRectangle(), Color.RED);
 
-            Graphics graph = image.getBufferedImage().getGraphics();
+            Graphics2D graph = image.getBufferedImage().createGraphics();
             graph.setColor(Color.RED);
+            graph.setStroke(new BasicStroke(1));
+
             Rectangle rec = root.getRectangle();
             graph.drawRect((int)rec.getX1(), image.getHeight()-(int)rec.getY1(), (int)rec.getWidth(), (int)rec.getHeight());
             graph.dispose();
@@ -55,7 +57,7 @@ public class ImageTest {
     public void imageTest() throws IOException, InterruptedException, WrongDimensionException {
         Data data = new Data();
         data.read("src/test/resources/data/img1.png", Data.DataType.IMAGE_PNG.getIdentifier());
-        RectangelizeTree tree = new RectangelizeTreeImpl(data.getData(), 5, 30);
+        RectangelizeTree tree = new RectangelizeTreeImpl(data.getData(), 5, 10);
         RectangleNode root = tree.getTree();
 //        Plot plot = new Plot();
 //        plot.addPoints(root.getValues(), Color.BLUE);
