@@ -28,20 +28,7 @@ public class RectangelizeTreeImpl implements RectangelizeTree {
 //        }
         this.points = points;
         this.slicesToCheck = slicesToCheck;
-        Point tempPoint = points.get(0);
-        double xMin = tempPoint.get(0);
-        double xMax = tempPoint.get(0);
-        double yMin = tempPoint.get(1);
-        double yMax = tempPoint.get(1);
-        for (Point p : points) {
-            double x = p.get(0);
-            double y = p.get(1);
-            if (y < yMin) yMin = y;
-            if (y > yMax) yMax = y;
-            if (x < xMin) xMin = x;
-            if (x > xMax) xMax = x;
-        }
-        this.root = findPartition(new Rectangle(points, getCost(xMax-xMin, yMax-yMin, points), xMin, yMax, xMax, yMin), points, 0, maxDepth);
+        this.root = findPartition(new Rectangle(points), points, 0, maxDepth);
 
     }
 
@@ -57,8 +44,11 @@ public class RectangelizeTreeImpl implements RectangelizeTree {
     }
 
     private static boolean shallDivide(double minCost, double codtOfAllRectangle) {
+        log.info("===============================");
         log.info("Minimal cost: " + minCost);
         log.info("Cost of total: " + codtOfAllRectangle);
+        log.info("Difference: " + Math.abs(codtOfAllRectangle - minCost));
+        log.info("Shall divide? " + (Math.abs(codtOfAllRectangle - minCost) < 0.001));
         return Math.abs(codtOfAllRectangle - minCost) < 0.001;
     }
 
@@ -164,52 +154,54 @@ public class RectangelizeTreeImpl implements RectangelizeTree {
                     rightPoints.add(p);
                 }
             }
-            Rectangle leftRectangle = new Rectangle(leftPoints, fCost, x1, y1, x2, y2);
-            Rectangle rightRectangle = new Rectangle(rightPoints, sCost, x2, y1, x3, y2);
-            RectangleNode topChild = null;
-            topChild = findPartition(leftRectangle, leftPoints, depth + 1, maxDepth);
-            RectangleNode bottomChild = null;
-            bottomChild = findPartition(rightRectangle, rightPoints, depth + 1, maxDepth);
-            List<Node> children = new ArrayList<>();
-            if (topChild != null) {
-                children.add(topChild);
-            }
-            if (bottomChild != null) {
-                children.add(bottomChild);
-            }
-            return new RectangleNode(rectangle, points, 0, Arrays.asList(x2), children);
+//            Rectangle leftRectangle = new Rectangle(leftPoints, fCost, x1, y1, x2, y2);
+//            Rectangle rightRectangle = new Rectangle(rightPoints, sCost, x2, y1, x3, y2);
+//            RectangleNode topChild = null;
+//            topChild = findPartition(leftRectangle, leftPoints, depth + 1, maxDepth);
+//            RectangleNode bottomChild = null;
+//            bottomChild = findPartition(rightRectangle, rightPoints, depth + 1, maxDepth);
+//            List<Node> children = new ArrayList<>();
+//            if (topChild != null) {
+//                children.add(topChild);
+//            }
+//            if (bottomChild != null) {
+//                children.add(bottomChild);
+//            }
+//            return new RectangleNode(rectangle, points, 0, Arrays.asList(x2), children);
+            return null;
 
         } else {
-            double y1 = yMax;
-            double y2 = yMax - (slice) * smallHeigh;
-            double y3 = yMin;
-            double x1 = xMin;
-            double x2 = xMax;
-            List<Point> topPoints = new ArrayList<>();
-            List<Point> bottomPoints = new ArrayList<>();
-            for (Point p : points) {
-                if (p.get(1) >= y2) {
-                    topPoints.add(p);
-                } else {
-                    bottomPoints.add(p);
-                }
-            }
-            Rectangle topRectangle = new Rectangle(topPoints, fCost, x1, y1, x2, y2);
-            Rectangle bottomRectangle = new Rectangle(bottomPoints, sCost, x1, y2, x2, y3);
-            RectangleNode leftChild = null;
-//            if (leftCov > 0.084)
-            leftChild = findPartition(topRectangle, topPoints, depth + 1, maxDepth);
-            RectangleNode rightChild = null;
-//            if (rightCov > 0.084)
-            rightChild = findPartition(bottomRectangle, bottomPoints, depth + 1, maxDepth);
-            List<Node> children = new ArrayList<>();
-            if (leftChild != null) {
-                children.add(leftChild);
-            }
-            if (rightChild != null) {
-                children.add(rightChild);
-            }
-            return new RectangleNode(rectangle, points, 1, Arrays.asList(y2), children);
+//            double y1 = yMax;
+//            double y2 = yMax - (slice) * smallHeigh;
+//            double y3 = yMin;
+//            double x1 = xMin;
+//            double x2 = xMax;
+//            List<Point> topPoints = new ArrayList<>();
+//            List<Point> bottomPoints = new ArrayList<>();
+//            for (Point p : points) {
+//                if (p.get(1) >= y2) {
+//                    topPoints.add(p);
+//                } else {
+//                    bottomPoints.add(p);
+//                }
+//            }
+//            Rectangle topRectangle = new Rectangle(topPoints, fCost, x1, y1, x2, y2);
+//            Rectangle bottomRectangle = new Rectangle(bottomPoints, sCost, x1, y2, x2, y3);
+//            RectangleNode leftChild = null;
+////            if (leftCov > 0.084)
+//            leftChild = findPartition(topRectangle, topPoints, depth + 1, maxDepth);
+//            RectangleNode rightChild = null;
+////            if (rightCov > 0.084)
+//            rightChild = findPartition(bottomRectangle, bottomPoints, depth + 1, maxDepth);
+//            List<Node> children = new ArrayList<>();
+//            if (leftChild != null) {
+//                children.add(leftChild);
+//            }
+//            if (rightChild != null) {
+//                children.add(rightChild);
+//            }
+//            return new RectangleNode(rectangle, points, 1, Arrays.asList(y2), children);
+            return null;
         }
     }
 

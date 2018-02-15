@@ -84,5 +84,10 @@
       <version>6291899</version>
       <scope>test</scope>
     </dependency>
+      <dependency>
+          <groupId>com.github.kmisztal.JImageStreamToolkit</groupId>
+          <artifactId>jist-api</artifactId>
+          <version>27aef13</version>
+      </dependency>
   </dependencies>
 </project>
