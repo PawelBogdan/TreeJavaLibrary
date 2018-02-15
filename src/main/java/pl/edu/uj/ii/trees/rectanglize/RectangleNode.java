@@ -4,6 +4,7 @@ import pl.edu.misztal.data.Point;
 import pl.edu.uj.ii.utils.Node;
 import pl.edu.uj.ii.utils.Rectangle;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,14 +13,12 @@ import java.util.List;
 public class RectangleNode extends Node {
     private Rectangle rectangle;
 
-
-    public RectangleNode(Rectangle rectangle, int divisionCoordinate, List<Double> divisionValues, List<Node> children) {
-        super(divisionCoordinate, divisionValues, children);
-        this.rectangle = rectangle;
+    public RectangleNode(Rectangle rectangle) {
+        this(rectangle, -1, new ArrayList<>(), new ArrayList<>());
     }
 
-    public RectangleNode(Rectangle rectangle, List<Point> values, int divisionCoordinate, List<Double> divisionValues, List<Node> children) {
-        super(values, divisionCoordinate, divisionValues, children);
+    public RectangleNode(Rectangle rectangle, int divisionCoordinate, List<Double> divisionValues, List<Node> children) {
+        super(rectangle.getPoints(), divisionCoordinate, divisionValues, children);
         this.rectangle = rectangle;
     }
 

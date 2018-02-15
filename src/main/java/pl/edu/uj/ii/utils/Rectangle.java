@@ -77,38 +77,40 @@ public class Rectangle {
         return getSize(1);
     }
 
-    public List<Rectangle> findOptimalDivision(CostStrategy costStrategy, int slices, pl.edu.misztal.JImageStreamToolkit.image.Image  image, java.util.List<Color> colors) {
-        System.out.println("Rozważam prostokąt: " + this + "   " + costStrategy.getCost(this));
-        List<Rectangle> result = new ArrayList<>();
-        Graphics2D graph = image.getBufferedImage().createGraphics();
-        graph.setStroke(new BasicStroke(1));
-        double optimalCost = Double.MAX_VALUE;
+    public Point getP1() {
+        return p1;
+    }
+
+    public Point getP2() {
+        return p2;
+    }
+
+    public DivisionInfo findOptimalDivision(CostStrategy costStrategy, int slices) {
+        DivisionInfo result = new DivisionInfo(null, null, -1, -1, Double.MAX_VALUE);
         for (int dim = 0; dim < p1.getDimension(); dim++) {
             double dd = getSize(dim)/slices;
             for (int slice = 1; slice < slices; slice++) {
-                System.out.println("===============================");
                 double dv = dim == 0 ? p1.get(dim) + dd*slice : p1.get(dim) - dd*slice ;
                 final Point dp1 = dim == 0 ? new Point(0, dv, p2.get(1)) : new Point(0, p2.get(0), dv);
                 final Point dp2 = dim == 0 ? new Point(0, dv, p1.get(1)) : new Point(0, p1.get(0), dv);
-                graph.setColor(colors.get(slice));
-                graph.drawLine((int)dp1.get(0), (int)dp1.get(1), (int)dp2.get(0), (int)dp2.get(1));
                 Rectangle sub1 = new Rectangle(points, p1, dp1);
                 Rectangle sub2 = new Rectangle(points, dp2, p2);
                 double tempCost = costStrategy.getCost(sub1, sub2);
-                System.out.println("Jego dwa pod protokąty: " + colors.get(slice));
-                System.out.println("     " + sub1 + "    " + costStrategy.getCost(sub1));
-                System.out.println("     " + sub2 + "    " + costStrategy.getCost(sub2));
-                System.out.println("     Laczny koszt: " + tempCost);
-
-                if (tempCost < optimalCost) {
-                    optimalCost = tempCost;
-                    result = Arrays.asList(sub1, sub2);
+                if (tempCost < result.getDivisionCost()) {
+                    result.setR1(sub1);
+                    result.setR2(sub2);
+                    result.setDivisionCost(tempCost);
+                    result.setDivisionDimension(dim);
+                    result.setDivisionValue(dv);
                 }
             }
         }
-        graph.setColor(colors.get(0));
-        graph.drawLine((int)result.get(0).getX2(), (int)result.get(0).getY2(), (int)result.get(1).getX1(), (int)result.get(1).getY1());
-        return result;
+        double allRectangleCost = costStrategy.getCost(this);
+        if (costStrategy.shallDivide(allRectangleCost, result.getDivisionCost())) {
+            return result;
+        } else {
+            return null;
+        }
     }
 
 

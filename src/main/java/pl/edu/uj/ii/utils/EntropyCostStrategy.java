@@ -10,4 +10,9 @@ public class EntropyCostStrategy implements CostStrategy {
     public double getCost(Rectangle rectangle1, Rectangle rectangle2) {
         return getCost(rectangle1) + getCost(rectangle2);
     }
+
+    @Override
+    public boolean shallDivide(double allRectangleCost, double optimalCost) {
+        return Math.abs(allRectangleCost - optimalCost) > 0.01;
+    }
 }
